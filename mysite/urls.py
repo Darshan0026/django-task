@@ -26,4 +26,9 @@ urlpatterns = [
     path('', auth_views.LoginView.as_view(template_name='blog/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='blog/logout.html'), name='logout'),
     path('blog/', blog_views.blogs, name='blogs'),
+    path('dashboard/', blog_views.dash, name='dashboard'),
+    path('post/new', blog_views.PostCreateView.as_view(), name='post-create'),
+    path('post/<int:pk>/', blog_views.PostDetailView.as_view(), name='post-detail'),
+    path('post/<int:pk>/update', blog_views.PostUpdateView.as_view(), name='post-update'),
+    path('post/<int:pk>/delete', blog_views.PostDeleteView.as_view(), name='post-delete'),
 ]
